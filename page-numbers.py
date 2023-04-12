@@ -104,6 +104,9 @@ if __name__ == '__main__':
 
 #####
 #     TO DO
-# 2. fileName = __file__ ( full path )
-# 3. repo / branch name if exists
-
+# 1. add stats to beginning of play for output to automation solution
+## a. fileName = __file__ ( full path )
+## b. repo / branch name if exists
+# 2. Documentation
+# 3. Output same name input with backup as .bak ( like reindent )
+# 4. Take input file without the -f switch
