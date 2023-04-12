@@ -14,19 +14,19 @@ jobs:
 #        runs-on: hammertime
 
     steps:
-        - name: Check out Git repository
-          uses: actions/checkout@v3
+      - name: Check out Git repository
+        uses: actions/checkout@v3
 
-        - name: Set up Python
-          uses: actions/setup-python@v3
-          with:
-            python-version: 3.10.6
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.10.6
 
-        - name: Install Python dependencies
-          run: pip install black flake8
+      - name: Install Python dependencies
+        run: pip install black flake8
 
-        - name: Run linters
-          uses: wearerequired/lint-action@v2
-          with:
-            black: true
-            flake8: true
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          black: true
+          flake8: true
