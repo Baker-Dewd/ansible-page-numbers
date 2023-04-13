@@ -1,17 +1,21 @@
-name: Run Lint
+name: Lint
+
 on:
-    push:
-        branches:
-            - Kore
-    pull_request:
-        branches:
-            - Kore
-    workflow_dispatch:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - Kore
+  pull_request:
+    branches:
+      - Kore
+  workflow_dispatch:
+
 
 jobs:
-    run-linters:
-        name: Run linters
-#        runs-on: hammertime
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
