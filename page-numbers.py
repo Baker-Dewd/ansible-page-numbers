@@ -3,18 +3,39 @@ import re
 import sys
 import argparse
 
-parser = argparse.ArgumentParser(description="Inserts numbers after each -name: statement in Ansible playbooks.")
-parser.add_argument("--filein", "-f", type=str, required=True, help="This is the Ansible Playbook you want steps numbered.")
-parser.add_argument("--fileout", "-o", type=str, help="Output file name. Default is out-<filename>.")
-parser.add_argument("--steps", "-s",  type=int, default=10, help="Value to increment the count with. default is 10.")
-parser.add_argument("--report", "-r", default = False, action='store_true', help="Specify whether or not you want a report of steps.")
-parser.add_argument("--verbose", "-v", default = False, action='store_true', help="Ouput is mirrored to stderr.")
-parser.add_argument("--delete", "-d", default = False, action='store_true', help="Delete step numbering.")
+parser = argparse.ArgumentParser(
+    description="Inserts numbers after each -name: statement in Ansible playbooks."
+)
+
+parser.add_argument(
+    "--filein", "-f", type=str, required=True, help="This is the Ansible Playbook you want steps numbered."
+)
+
+parser.add_argument(
+    "--fileout", "-o", type=str, help="Output file name. Default is out-<filename>."
+)
+
+parser.add_argument(
+    "--steps", "-s",  type=int, default=10, help="Value to increment the count with. default is 10."
+)
+
+parser.add_argument(
+    "--report", "-r", default = False, action='store_true', help="Specify whether or not you want a report of steps."
+)
+
+parser.add_argument(
+    "--verbose", "-v", default = False, action='store_true', help="Ouput is mirrored to stderr."
+)
+
+parser.add_argument(
+    "--delete", "-d", default = False, action='store_true', help="Delete step numbering."
+)
 
 args = parser.parse_args()
-if (args.fileout == None): 
+if args.fileout == None: 
     fileout = "out-"
     fileout = fileout + args.filein
+
 else: 
     fileout = args.fileout.strip()
 
@@ -26,13 +47,13 @@ delete = args.delete
 
 print("Input file:", filein)
 
-if (report != True):
+if report != True:
     print("Output file", fileout, "\nShow Report:", report)
 
-if (report != True):
+if report != True:
     print("Verbose", verbose)
 
-if (report != True):
+if report != True:
     print("Increments:", steps, "\n")
 
 
@@ -44,11 +65,13 @@ def putNumber(filein, steps, verbose):
             line = fr.readline()
             if re.search("- name:", line):
                 numberz += steps
-            thisline = re.sub("- name: [0-9]*\.*[ ]*", "- name: " + str(numberz) + ". ", line)
-            if (verbose):
+            thisline = re.sub(
+                "- name: [0-9]*\.*[ ]*", "- name: " + str(numberz) + ". ", line
+            )
+            if verbose:
                 print(thisline.rstrip())
             fw.write(thisline)
-            if line =="": 
+            if line == "": 
                 fr.close()
                 fw.close()
                 print("Done.")
@@ -62,13 +85,14 @@ def deleNumber(filein, fileout, verbose):
             line = fr.readline()
             if re.search("- name:", line):
                 thisline = re.sub("- name: [0-9]*\.*[ ]*", "- name: ", line)
+
             else:
                 thisline = line
             
             if (verbose):
-                    print(thisline.rstrip())
+                 print(thisline.rstrip())
             fw.write(thisline)
-            if line =="": 
+            if line == "": 
                 fr.close()
                 fw.close()
                 print("Done.")
@@ -90,10 +114,10 @@ def reportz(filein):
 
 
 if __name__ == '__main__':
-    if (delete):
+    if delete:
         deleNumber(filein, fileout, verbose)
         exit(0)
-    elif (report):
+    elif report:
         reportz(filein)
         exit(0)
     else:
