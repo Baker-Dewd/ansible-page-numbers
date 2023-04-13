@@ -8,30 +8,54 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument(
-    "--filein", "-f", type=str, required=True, help="This is the Ansible Playbook you want steps numbered."
+    "--filein", 
+    "-f", 
+    type=str, 
+    required=True, 
+    help="This is the Ansible Playbook you want steps numbered."
 )
 
 parser.add_argument(
-    "--fileout", "-o", type=str, help="Output file name. Default is out-<filename>."
+    "--fileout", 
+    "-o", 
+    type=str, 
+    help="Output file name. Default is out-<filename>."
 )
 
 parser.add_argument(
-    "--steps", "-s",  type=int, default=10, help="Value to increment the count with. default is 10."
+    "--steps", 
+    "-s",  
+    type=int, 
+    default=10, 
+    help="Value to increment the count with. default is 10."
 )
 
 parser.add_argument(
-    "--report", "-r", default = False, action='store_true', help="Specify whether or not you want a report of steps."
+    "--report", 
+    "-r", 
+    default = False, 
+    action='store_true', 
+    help="Specify whether or not you want a report of steps."
 )
 
 parser.add_argument(
-    "--verbose", "-v", default = False, action='store_true', help="Ouput is mirrored to stderr."
+    "--verbose", 
+    "-v", 
+    default = False, 
+    action='store_true', 
+    help="Ouput is mirrored to stderr."
 )
 
 parser.add_argument(
-    "--delete", "-d", default = False, action='store_true', help="Delete step numbering."
+    "--delete", 
+    "-d", 
+    default = False, 
+    action='store_true', 
+    help="Delete step numbering."
 )
 
 args = parser.parse_args()
+
 if args.fileout == None: 
     fileout = "out-"
     fileout = fileout + args.filein
@@ -71,6 +95,7 @@ def putNumber(filein, steps, verbose):
             if verbose:
                 print(thisline.rstrip())
             fw.write(thisline)
+
             if line == "": 
                 fr.close()
                 fw.close()
