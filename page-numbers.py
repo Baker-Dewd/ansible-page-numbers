@@ -12,14 +12,14 @@ parser.add_argument(
     "-f",
     type=str,
     required=True,
-    help="This is the Ansible Playbook you want steps numbered."
+    help="This is the Ansible Playbook you want steps numbered.",
 )
 
 parser.add_argument(
     "--fileout",
     "-o",
     type=str,
-    help="Output file name. Default is out-<filename>."
+    help="Output file name. Default is out-<filename>.",
 )
 
 parser.add_argument(
@@ -27,7 +27,7 @@ parser.add_argument(
     "-s",
     type=int,
     default=10,
-    help="Value to increment the count with. default is 10."
+    help="Value to increment the count with. default is 10.",
 )
 
 parser.add_argument(
@@ -35,7 +35,7 @@ parser.add_argument(
     "-r",
     default = False,
     action='store_true',
-    help="Specify whether or not you want a report of steps."
+    help="Specify whether or not you want a report of steps.",
 )
 
 parser.add_argument(
@@ -43,7 +43,7 @@ parser.add_argument(
     "-v",
     default = False,
     action='store_true',
-    help="Ouput is mirrored to stderr."
+    help="Ouput is mirrored to stderr.",
 )
 
 parser.add_argument(
@@ -51,7 +51,7 @@ parser.add_argument(
     "-d",
     default = False,
     action='store_true',
-    help="Delete step numbering."
+    help="Delete step numbering.",
 )
 
 args = parser.parse_args()
@@ -112,7 +112,6 @@ def deleNumber(filein, fileout, verbose):
 
             else:
                 thisline = line
-            
             if verbose:
                 print(thisline.rstrip())
             fw.write(thisline)
