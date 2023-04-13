@@ -33,24 +33,24 @@ parser.add_argument(
 parser.add_argument(
     "--report",
     "-r",
-    default = False,
-    action='store_true',
+    default=False,
+    action=i"store_true",
     help="Specify whether or not you want a report of steps.",
 )
 
 parser.add_argument(
     "--verbose",
     "-v",
-    default = False,
-    action='store_true',
+    default=False,
+    action="store_true",
     help="Ouput is mirrored to stderr.",
 )
 
 parser.add_argument(
     "--delete",
     "-d",
-    default = False,
-    action='store_true',
+    default=False,
+    action="store_true",
     help="Delete step numbering.",
 )
 
@@ -120,6 +120,7 @@ def deleNumber(filein, fileout, verbose):
                 fw.close()
                 print("Done.")
                 break
+
 
 def reportz(filein):
     print("\n")
