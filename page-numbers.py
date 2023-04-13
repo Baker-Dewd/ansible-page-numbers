@@ -95,7 +95,6 @@ def putNumber(filein, steps, verbose):
             if verbose:
                 print(thisline.rstrip())
             fw.write(thisline)
-
             if line == "": 
                 fr.close()
                 fw.close()
@@ -114,7 +113,7 @@ def deleNumber(filein, fileout, verbose):
             else:
                 thisline = line
             
-            if (verbose):
+            if verbose:
                  print(thisline.rstrip())
             fw.write(thisline)
             if line == "": 
@@ -123,7 +122,6 @@ def deleNumber(filein, fileout, verbose):
                 print("Done.")
                 break
 
-## Function to report 
 def reportz(filein):
     print("\n")
     with open(filein) as fr:
@@ -138,7 +136,7 @@ def reportz(filein):
                 print(thisline.rstrip())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     if delete:
         deleNumber(filein, fileout, verbose)
         exit(0)
