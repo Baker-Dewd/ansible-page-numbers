@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 import re
-import sys
 import argparse
 
+
 parser = argparse.ArgumentParser(
-    description="Inserts numbers after each -name: statement in Ansible playbooks."
+    description="Inserts numbers after each - name: in playbooks."
 )
 
 parser.add_argument(
@@ -56,7 +56,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-if args.fileout == None:
+if args.fileout is None:
     fileout = "out-"
     fileout = fileout + args.filein
 
@@ -71,13 +71,13 @@ delete = args.delete
 
 print("Input file:", filein)
 
-if report != True:
+if report is not True:
     print("Output file", fileout, "\nShow Report:", report)
 
-if report != True:
+if report is not True:
     print("Verbose", verbose)
 
-if report != True:
+if report is not True:
     print("Increments:", steps, "\n")
 
 
@@ -152,8 +152,8 @@ if __name__ == "__main__":
 #####
 #     TO DO
 # 1. add stats to beginning of play for output to automation solution
-## a. fileName = __file__ ( full path )
-## b. repo / branch name if exists
+#  a. fileName = __file__ ( full path )
+#  b. repo / branch name if exists
 # 2. Documentation
 # 3. Output same name input with backup as .bak ( like reindent )
 # 4. Take input file without the -f switch
