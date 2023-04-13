@@ -34,7 +34,7 @@ parser.add_argument(
     "--report",
     "-r",
     default=False,
-    action=i"store_true",
+    action="store_true",
     help="Specify whether or not you want a report of steps.",
 )
 
