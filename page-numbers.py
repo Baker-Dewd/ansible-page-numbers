@@ -158,4 +158,3 @@ if __name__ == "__main__":
 # 3. Output same name input with backup as .bak ( like reindent )
 # 4. Take input file without the -f switch
 # 5. Fix 'Invalid escape sequence' in regex. '\.'
-
