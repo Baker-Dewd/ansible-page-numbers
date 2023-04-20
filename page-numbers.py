@@ -151,10 +151,11 @@ if __name__ == "__main__":
 
 #####
 #     TO DO
-# 1. add stats to beginning of play for output to automation solution
-#  a. fileName = __file__ ( full path )
-#  b. repo / branch name if exists
-# 2. Documentation
-# 3. Output same name input with backup as .bak ( like reindent )
-# 4. Take input file without the -f switch
-# 5. Fix 'Invalid escape sequence' in regex. '\.'
+# - Add second pass to catch NOTIFY calls.  
+# - add stats to beginning of play for output to automation solution
+# -- fileName = __file__ ( full path )
+# -- repo / branch name if exists
+# - Documentation
+# - Output same name input with backup as .bak ( like reindent )
+# - Take input file without the -f switch
+# - Fix 'Invalid escape sequence' in regex. '\.'
